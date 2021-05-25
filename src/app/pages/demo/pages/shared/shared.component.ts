@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import {FormBuilder, FormGroup, Validators} from '@angular/forms'
 
-//import {regex} from '@app/shared/utils'
+import {regex, regexErrors} from '@app/shared/utils'
 
 @Component({
   selector: 'app-shared',
@@ -12,8 +12,11 @@ export class SharedComponent implements OnInit {
 
   form: FormGroup
   isInline: boolean
+  regexErrors = regexErrors
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) {
+    this.isInline = true
+  }
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -21,14 +24,26 @@ export class SharedComponent implements OnInit {
         updateOn: 'blur',
         validators: [
           Validators.required,
-          Validators.minLength(3)
+          Validators.minLength(3),
+          Validators.pattern(regex.numbers)
         ]
       }],
+      password: [null, {
+        updateOn: 'blur',
+        validators: [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.pattern(regex.password)
+        ]
+      }]
     })
   }
 
   onPatchValue() {
-    this.form.patchValue({input: 'test'})
+    this.form.patchValue({
+      input: 123
+      }
+    )
   }
 
   onToggleInline() {

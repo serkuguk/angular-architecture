@@ -15,8 +15,8 @@
         <span *ngSwitchCase="'minlength'">At least {{control.errors[errorKey].requiredLength}} characters.</span>
         <span *ngSwitchCase="'maxlength'">No more then {{control.errors[errorKey].requiredLength}}</span>
         <span *ngSwitchCase="'pattern'">
-          <span>{{patternError}}</span>
-          <span>Pattern does not match</span>
+          <span *ngIf="patternError">{{patternError}}</span>
+          <span *ngIf="!patternError">Pattern does not match</span>
         </span>
       </ng-container>
     </div>

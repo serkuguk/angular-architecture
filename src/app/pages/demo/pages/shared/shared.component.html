@@ -4,8 +4,20 @@
   <app-button (click)="onPatchValue()">Patch Value</app-button>
   <app-button (click)="onToggleInline()">Toggle Inline</app-button>
 
-  <app-form-field label="Input" [required]="true" [control]="form.controls.input" [isInline]="isInline">
-    <app-input formControlName="input" [placeholder]="'name'"></app-input>
+  <app-form-field label="Input"
+                  [required]="true"
+                  [control]="form.controls.input"
+                  [isInline]="isInline"
+                  [patternError]="regexErrors.numbers">
+    <app-input formControlName="input" [placeholder]="'Number'"></app-input>
+  </app-form-field>
+
+  <app-form-field label="Password"
+                  [required]="true"
+                  [control]="form.controls.password"
+                  [isInline]="isInline"
+                  [patternError]="regexErrors.password">
+    <app-password formControlName="password"></app-password>
   </app-form-field>
 </form>
 
