@@ -6,6 +6,7 @@ import { AngularFireModule } from '@angular/fire'
 import { AngularFirestoreModule } from '@angular/fire/firestore'
 import { AngularFireAuthModule } from '@angular/fire/auth'
 import { AngularFireStorageModule } from '@angular/fire/storage'
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 
 import { environment } from '@src/environments/environment'
 import { DemoComponent } from './pages/demo/demo.component'
@@ -24,7 +25,8 @@ import {AppRoutingModule} from '@app/app-routing.module'
         AngularFirestoreModule,
         AngularFireAuthModule,
         RouterModule,
-        AppRoutingModule
+        AppRoutingModule,
+        BrowserAnimationsModule
     ],
   providers: [],
   bootstrap: [AppComponent]

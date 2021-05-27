@@ -61,7 +61,7 @@
                 }
               ]
             },
-			"dev": {
+            "dev": {
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -95,9 +95,9 @@
             "browserTarget": "new-practic:build"
           },
           "configurations": {
-			"dev": {
+            "dev": {
               "browserTarget": "new-practic:build:dev"
-            },  
+            },
             "production": {
               "browserTarget": "new-practic:build:production"
             }
@@ -160,5 +160,8 @@
     "@schematics/angular:component": {
       "styleext": "scss"
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
