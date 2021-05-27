@@ -1,0 +1,11 @@
+@import "~styles/colors";
+
+.date {
+  display: inline-flex;
+}
+
+:host-context(.form-field__error) {
+  input {
+    border: 1px soid $error;
+  }
+}
