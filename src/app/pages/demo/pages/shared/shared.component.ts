@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core'
 import {FormBuilder, FormGroup, Validators} from '@angular/forms'
 
-import {regex, regexErrors} from '@app/shared/utils'
+import {markFormGroupTouched, regex, regexErrors} from '@app/shared/utils'
 import {ControlItemInterface} from '@app/shared/types/frontend/control-item-interface'
+import {NotificationService} from '@app/shared/services';
 
 @Component({
   selector: 'app-shared',
@@ -13,10 +14,11 @@ export class SharedComponent implements OnInit {
 
   form: FormGroup
   isInline: boolean
+  toggleSpinner: boolean
   regexErrors = regexErrors
   items: ControlItemInterface[]
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private notification: NotificationService) {
     this.isInline = true
     this.items = [
       {label: 'First', value: 1, icon: null},
@@ -38,13 +40,19 @@ export class SharedComponent implements OnInit {
         ]
       }],
       password: [null, {
-        updateOn: 'blur',
-        validators: [
-          Validators.required,
-          Validators.minLength(3),
-          Validators.pattern(regex.password)
-        ]
-      }],
+      updateOn: 'blur',
+      validators: [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.pattern(regex.password)
+      ]
+    }],
+    autocomplete: [null, {
+      updateOn: 'blur',
+      validators: [
+        Validators.required
+      ]
+    }],
       select: [null, {
         updateOn: 'change',
         validators: [
@@ -80,16 +88,49 @@ export class SharedComponent implements OnInit {
 
   onPatchValue() {
     this.form.patchValue({
-      input: 123
-      }
-    )
+       input: 123,
+       password: 'temp123',
+       autocomplete: 1,
+       //select: 1,
+       checkboxes: [3],
+       radios: 4,
+       date: new Date().getTime(),
+       dateRange: {
+       from: new Date(2021,5, 22).getTime(),
+         to: new Date(2021, 6, 30).getTime()
+       }
+      })
   }
 
   onToggleInline() {
     this.isInline = !this.isInline
   }
 
-  onSubmit() {
+  onToggleDisable() {
+    if(this.form.enabled) {
+      this.form.disable()
+    }else {
+      this.form.enable()
+    }
+  }
 
+  onSubmit() {
+    if (!this.form.valid) {
+      markFormGroupTouched(this.form)
+    }
+  }
+
+  onToggleSpinner(): void {
+    this.toggleSpinner = !this.toggleSpinner
+  }
+
+
+  onError(): void {
+    this.notification.error("Oops! Something is wrong")
+  }
+
+
+  onSuccess(): void {
+    this.notification.success("Service is fine!")
   }
 }

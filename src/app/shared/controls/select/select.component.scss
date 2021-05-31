@@ -10,7 +10,7 @@
   }
 }
 
-:host-context(.form-field__error) {
+:host-context(.form-field_error) {
   .select {
     border: 1px solid $error;
   }

@@ -13,9 +13,9 @@
   }
 }
 
-:host-context(.form-field__error) {
+:host-context(.form-field_error) {
   .input {
-    border: 1px sloid $error;
+    border: 1px solid $error;
   }
 }
 

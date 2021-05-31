@@ -27,6 +27,9 @@ const APP_DATE_FORMATS: MatDateFormats = {
   }
 }
 
+//Services
+import {NotificationModule} from '@app/shared/services'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +44,8 @@ const APP_DATE_FORMATS: MatDateFormats = {
       RouterModule,
       AppRoutingModule,
       BrowserAnimationsModule,
-      MatNativeDateModule
+      MatNativeDateModule,
+      NotificationModule.forRoot()
   ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},

@@ -2,7 +2,7 @@ import {Component, forwardRef, Input, OnInit, EventEmitter, Output} from '@angul
 import {NG_VALUE_ACCESSOR, ControlValueAccessor} from '@angular/forms'
 import {MatDatepickerInputEvent} from '@angular/material/datepicker'
 
-import {Value} from '@app/shared/types/frontend/control-item-interface'
+type Value = number
 
 @Component({
   selector: 'app-date',
@@ -36,7 +36,7 @@ export class DateComponent implements OnInit, ControlValueAccessor {
   propagateTouched: any = () => {}
 
   get inputValue(): Date {
-    return this.value ? new Date() : null
+    return this.value ? new Date(this.value) : null;
   }
 
   registerOnChange(fn: any): void {
@@ -51,7 +51,7 @@ export class DateComponent implements OnInit, ControlValueAccessor {
     this.isDisabled = isDisabled
   }
 
-  writeValue(value: any): void {
+  writeValue(value: Value): void {
     this.value = value
   }
 
