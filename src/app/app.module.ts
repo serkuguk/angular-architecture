@@ -7,6 +7,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore'
 import { AngularFireAuthModule } from '@angular/fire/auth'
 import { AngularFireStorageModule } from '@angular/fire/storage'
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import {StoreDevtoolsModule} from '@ngrx/store-devtools'
 
 import { environment } from '@src/environments/environment'
 import { DemoComponent } from './pages/demo/demo.component'
@@ -29,6 +30,8 @@ const APP_DATE_FORMATS: MatDateFormats = {
 
 //Services
 import {NotificationModule} from '@app/shared/services'
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects'
 
 @NgModule({
   declarations: [
@@ -45,7 +48,10 @@ import {NotificationModule} from '@app/shared/services'
       AppRoutingModule,
       BrowserAnimationsModule,
       MatNativeDateModule,
-      NotificationModule.forRoot()
+      NotificationModule.forRoot(),
+      StoreModule.forRoot({}, {}),
+      StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+      EffectsModule.forRoot([])
   ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},

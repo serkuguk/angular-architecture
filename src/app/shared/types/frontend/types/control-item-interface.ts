@@ -1,4 +1,4 @@
-import {IconInterface} from '@app/shared/types/frontend/icon-interface';
+import {IconInterface} from '@app/shared/types/frontend/types/icon-interface';
 
 export type Value = number | string | boolean
 

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import {FormBuilder, FormGroup, Validators} from '@angular/forms'
 
 import {markFormGroupTouched, regex, regexErrors} from '@app/shared/utils'
-import {ControlItemInterface} from '@app/shared/types/frontend/control-item-interface'
+import {ControlItemInterface} from '@app/shared/types/frontend/types/control-item-interface'
 import {NotificationService} from '@app/shared/services';
 
 @Component({

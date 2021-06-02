@@ -2,7 +2,7 @@ import {Component, forwardRef, Input, OnInit, Output, EventEmitter, OnDestroy} f
 import { NG_VALUE_ACCESSOR, ControlValueAccessor, FormControl} from '@angular/forms'
 import { Subject, Observable } from 'rxjs'
 import { takeUntil, distinctUntilChanged, startWith, map, filter } from 'rxjs/operators'
-import {ControlItemInterface, Value} from '@app/shared/types/frontend/control-item-interface'
+import {ControlItemInterface, Value} from '@app/shared/types/frontend/types/control-item-interface'
 
 
 @Component({

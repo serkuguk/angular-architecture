@@ -1,6 +1,6 @@
 import {Component, forwardRef, Input, OnInit, Output, EventEmitter} from '@angular/core'
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms'
-import {ControlItemInterface, Value} from '@app/shared/types/frontend/control-item-interface'
+import {ControlItemInterface, Value} from '@app/shared/types/frontend/types/control-item-interface'
 
 @Component({
   selector: 'app-radios',

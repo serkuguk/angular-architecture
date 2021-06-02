@@ -1,8 +1,8 @@
 import {Component, forwardRef, Input, OnInit, EventEmitter, Output} from '@angular/core'
 import {NG_VALUE_ACCESSOR, ControlValueAccessor, FormBuilder, FormGroup} from '@angular/forms'
 
-import {DateRangeValueInterface} from '@app/shared/types/frontend/date-range-value-interface';
-import {DateRangePlaceholderInterface} from '@app/shared/types/frontend/date-range-placeholder-interface';
+import {DateRangeValueInterface} from '@app/shared/types/frontend/types/date-range-value-interface';
+import {DateRangePlaceholderInterface} from '@app/shared/types/frontend/types/date-range-placeholder-interface';
 
 @Component({
   selector: 'app-date-range',
