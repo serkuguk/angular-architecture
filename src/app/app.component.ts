@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {AngularFirestore} from '@angular/fire/firestore';
+import {Component, OnInit} from '@angular/core'
+import {Store} from '@ngrx/store'
+import {dictionariesActions} from '@app/shared/dictionary/dictionaries/actions/dictionaries.actions';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +10,9 @@ import {AngularFirestore} from '@angular/fire/firestore';
 export class AppComponent implements OnInit{
   title = 'new-practic';
 
-  constructor(private afs: AngularFirestore) {}
+  constructor(private store: Store) {}
 
   ngOnInit() {
-    this.afs.collection('test').snapshotChanges().subscribe(data => {
-      console.log(data)
-    })
+      this.store.dispatch(dictionariesActions())
   }
 }
