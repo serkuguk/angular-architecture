@@ -4,5 +4,6 @@ export interface UserStateInterface {
   entity: UserInterface,
   uid: string,
   loading: boolean,
-  error: string
+  error: string,
+  isLoggedIn: boolean
 }

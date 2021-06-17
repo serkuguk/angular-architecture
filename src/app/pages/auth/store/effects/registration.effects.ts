@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core'
-import {catchError, map, switchMap, tap} from 'rxjs/operators';
+import {catchError, map, switchMap, tap} from 'rxjs/operators'
 import {Router} from '@angular/router'
 import {Actions, createEffect, ofType} from '@ngrx/effects'
 
@@ -7,14 +7,13 @@ import {
   registrationActions,
   registrationFailureActions,
   registrationSuccessActions
-} from '@app/pages/auth/store/actions/registration.actions';
+} from '@app/pages/auth/store/actions/registration.actions'
 
 import {NotificationService} from '@app/shared/services'
 import {UserService} from '@app/pages/auth/services/user.service';
-import {from, of} from 'rxjs';
-import {environment} from '@src/environments/environment.dev';
-import {AngularFireAuth} from '@angular/fire/auth';
-import {HttpErrorResponse} from '@angular/common/http';
+import {of} from 'rxjs'
+import {environment} from '@src/environments/environment.dev'
+import {HttpErrorResponse} from '@angular/common/http'
 
 @Injectable()
 export class RegistrationEffects {
@@ -43,7 +42,6 @@ export class RegistrationEffects {
   )
 
   constructor(private actions$: Actions,
-              private afAuth: AngularFireAuth,
               private userService: UserService,
               private router: Router,
               private notification: NotificationService) {}

@@ -6,12 +6,15 @@ import {
   registrationFailureActions,
   registrationSuccessActions
 } from '@app/pages/auth/store/actions/registration.actions';
+import {initActions, initAuthorizedActions, initFailureActions, initUnAuthorizedActions} from '@app/pages/auth/store/actions/init.actions';
+import {logoutActions} from '@app/pages/auth/store/actions/logout.actions';
 
 const initialUserState: UserStateInterface = {
   entity: null,
   uid: null,
-  loading: false,
-  error: null
+  loading: null,
+  error: null,
+  isLoggedIn: null
 }
 
 const userReducer = createReducer(
@@ -58,6 +61,41 @@ const userReducer = createReducer(
       ...state,
       loading: false,
       error: action.error
+    })
+  ),
+  on(initActions,
+    (state) => ({
+      ...state,
+      loading: true
+    })
+  ),
+  on(initAuthorizedActions,
+    (state, action) => ({
+      ...state,
+      entity: action.currentUser,
+      loading: false,
+      error: null
+    })
+  ),
+  on(initUnAuthorizedActions,
+    (state) => ({
+      ...state,
+      entity: null,
+      loading: false,
+      error: null
+    })
+  ),
+  on(initFailureActions,
+    (state, action) => ({
+      ...state,
+      loading: false,
+      error: action.error
+    })
+  ),
+  on(logoutActions,
+    () => ({
+      ...initialUserState,
+      isLoggedIn: false
     })
   )
 )

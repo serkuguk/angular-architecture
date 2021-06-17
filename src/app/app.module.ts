@@ -37,13 +37,13 @@ import { StoreModule } from '@ngrx/store'
 import { EffectsModule } from '@ngrx/effects'
 import {DictionaryModule} from '@app/shared/dictionary/dictionary.module';
 import { HeaderComponent } from './components/header/header.component'
+import {HeaderModule} from '@app/components/header/header.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    DemoComponent,
-    HeaderComponent
+    DemoComponent
   ],
   imports: [
       BrowserModule,
@@ -56,6 +56,7 @@ import { HeaderComponent } from './components/header/header.component'
       BrowserAnimationsModule,
       MatNativeDateModule,
       DictionaryModule,
+      HeaderModule,
       NotificationModule.forRoot(),
       StoreRouterConnectingModule.forRoot(),
       StoreModule.forRoot({router: routerReducer},{}),

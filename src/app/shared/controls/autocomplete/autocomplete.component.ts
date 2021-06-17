@@ -31,7 +31,6 @@ export class AutocompleteComponent implements OnInit, OnDestroy, ControlValueAcc
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.formControl.valueChanges.subscribe(t => console.log(typeof t === 'object')))
     this.options$ = this.formControl.valueChanges.pipe(
         startWith(''),
         filter(value => typeof value === 'string' || typeof value === 'object'),

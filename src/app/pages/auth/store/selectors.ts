@@ -6,15 +6,15 @@ export const authFeatureSelector = createFeatureSelector<AppStateInterface, User
 
 export const getCurrentUser = createSelector(
   authFeatureSelector,
-  (state) => state.entity
+  (state: UserStateInterface) => state.entity
 )
 
 export const getLoading = createSelector(
   authFeatureSelector,
-  (state) => state.loading
+  (state: UserStateInterface) => state.loading
 );
 
 export const getIsAuthorized = createSelector(
   authFeatureSelector,
-  (state) => !!state.uid
+  (state: UserStateInterface) => !!state.uid
 );

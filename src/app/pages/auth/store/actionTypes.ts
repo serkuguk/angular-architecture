@@ -1,5 +1,10 @@
 export enum ActionTypes {
 
+  INIT = '[User] Init: Start',
+  INIT_AUTHORIZED = '[User] Init: Authorized',
+  INIT_UNAUTHORIZED = '[User] Init: Unauthorized',
+  INIT_FAILURE = '[User] Init: Failure',
+
   SIGN_IN_EMAIL = '[User] Sign In with email: Start',
   SIGN_IN_EMAIL_SUCCESS = '[User] Sign In with email: Success',
   SIGN_IN_EMAIL_FAILURE = '[User] Sign In with email: Failure',
@@ -8,7 +13,7 @@ export enum ActionTypes {
   SIGN_UP_EMAIL_SUCCESS = '[User] Sign Up with email: Success',
   SIGN_UP_EMAIL_FAILURE = '[User] Sign Up with email: Failure',
 
-  SIGN_OUT_EMAIL = '[User] Sign Out with email: Start',
-  SIGN_OUT_EMAIL_SUCCESS = '[User] Sign Out with email: Success',
-  SIGN_OUT_EMAIL_FAILURE = '[User] Sign Out with email: Failure'
+  SIGN_OUT = '[User] Sign Out: Start',
+  SIGN_OUT_SUCCESS = '[User] Sign Out: Success',
+  SIGN_OUT_FAILURE = '[User] Sign Out: Failure'
 }
