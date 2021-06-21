@@ -34,11 +34,16 @@ export class FilesUploadComponent implements OnInit {
       return
     }
 
+    if (this.data.crop &&
+      files.length === 1 &&
+      files.item(0).type.split('/')[0] === 'image') {
+      this.imageFile = files.item(0)
+      return
+    }
+
     for (let i = 0; i < files.length; i++) {
       this.files.push(files.item(i))
     }
-
-    console.log(files)
   }
 
   onUploadComplete(url: string): void {
@@ -51,5 +56,11 @@ export class FilesUploadComponent implements OnInit {
 
   onComplete(): void {
     const res = this.data.multiple ? this.filesUrls : this.filesUrls[0]
+    this.dialogRef.close(res)
+  }
+
+  onCrop(file: File): void {
+    this.imageFile = null
+    this.files.push(file)
   }
 }

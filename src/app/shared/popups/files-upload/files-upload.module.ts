@@ -5,7 +5,8 @@ import { FilesUploadComponent } from './files-upload.component'
 import { ImageCropperModule } from 'ngx-image-cropper'
 import {MatDialogModule} from '@angular/material/dialog'
 import {DropZoneDirective} from '@app/shared/popups/files-upload/directives/drop-zone.directive';
-import {UploadModule} from '@app/shared/popups/upload/upload.module';
+import {UploadModule} from '@app/shared/popups/upload/upload.module'
+import {CropperModule} from '@app/shared/popups/cropper/cropper.module'
 
 @NgModule({
   declarations: [FilesUploadDirective,
@@ -15,7 +16,8 @@ import {UploadModule} from '@app/shared/popups/upload/upload.module';
     CommonModule,
     MatDialogModule,
     ImageCropperModule,
-    UploadModule
+    UploadModule,
+    CropperModule
   ],
   exports: [FilesUploadDirective,
             DropZoneDirective,
