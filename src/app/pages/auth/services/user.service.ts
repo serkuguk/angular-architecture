@@ -18,6 +18,7 @@ export class UserService {
   }
 
   create(credentials: any): Observable<any> {
+    let emailLower = credentials.email.toLowerCase()
     return from(this.afAuth.createUserWithEmailAndPassword(credentials.email, credentials.password)).pipe(
       tap(() => {
         from(this.afAuth.currentUser).pipe(

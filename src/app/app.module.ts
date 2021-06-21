@@ -38,6 +38,11 @@ import { EffectsModule } from '@ngrx/effects'
 import {DictionaryModule} from '@app/shared/dictionary/dictionary.module';
 import { HeaderComponent } from './components/header/header.component'
 import {HeaderModule} from '@app/components/header/header.module';
+import { DisplayComponent } from './pages/profile/pages/display/components/display.component';
+import {ProfileModule} from '@app/pages/profile/profile.module';
+import { NotFoundComponent } from './pages/static/pages/not-found/components/not-found.component';
+import { WelcomeComponent } from './pages/static/pages/welcome/components/welcome.component';
+import {StaticModule} from '@app/pages/static/static.module';
 
 
 @NgModule({
