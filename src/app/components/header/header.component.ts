@@ -8,12 +8,13 @@ import {ChangeDetectionStrategy, Component, Input, OnInit, Output, EventEmitter}
 })
 export class HeaderComponent implements OnInit {
 
-  @Input('isAuthorized') isAuthorizedProps: boolean
+  @Input() isAuthorized: boolean
   @Output() signOut = new EventEmitter<void>()
 
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
   onSignOut() {

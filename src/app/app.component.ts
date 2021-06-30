@@ -20,7 +20,7 @@ export class AppComponent implements OnInit{
 
   ngOnInit() {
     //this.isAuthorized$ = this.store.pipe(select(getIsAuthorized))
-    //this.initializationData()
+    this.initializationData()
   }
 
   initializationData(): void {

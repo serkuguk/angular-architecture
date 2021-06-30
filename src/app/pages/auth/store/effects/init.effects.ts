@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core'
 import {Actions, createEffect, ofType} from '@ngrx/effects'
-import {catchError, map, switchMap, take} from 'rxjs/operators'
+import {catchError, first, map, switchMap, take, tap} from 'rxjs/operators';
 
 import {initActions, initUnAuthorizedActions, initFailureActions, initAuthorizedActions} from '@app/pages/auth/store/actions/init.actions'
 
@@ -15,23 +15,23 @@ import {AngularFireAuth} from '@angular/fire/auth'
 export class InitEffects {
 
   init$ = createEffect(() => this.actions$.pipe(
-                                    ofType(initActions),
-                                    switchMap(() => this.afAuth.authState.pipe(take(1))),
-                                    map((authState) => {console.log(authState)
-                                      if (authState) {
-                                        this.afs.doc<UserInterface>(`users/${authState.uid}`).valueChanges().pipe(
-                                          take(1),
-                                          map(currentUser => initAuthorizedActions({currentUser})),
-                                          catchError((errorResponse: HttpErrorResponse) => {
-                                            return of(initFailureActions({error: errorResponse.error.errors}))
-                                          })
-                                        )
-                                      } else {
-                                        return initUnAuthorizedActions()
-                                      }
-                                    })
+    ofType(initActions),
+    switchMap(() => this.afAuth.authState.pipe(first())),
+    switchMap(authState => {
+      if (authState) {
 
-  ))
+        return this.afs.doc(`users/${authState.uid}`).valueChanges().pipe(
+          take(1),
+          map(currentUser => initAuthorizedActions({currentUser} || null)),
+          catchError(err => of(initFailureActions(err.message)))
+        );
+
+      } else {
+        return of(initUnAuthorizedActions);
+      }
+    })))
+
+
 
   constructor(private actions$: Actions,
               private afAuth: AngularFireAuth,

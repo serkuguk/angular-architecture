@@ -3,12 +3,14 @@
     <div class="header__navigation">
       <a [routerLink]="['demo']" routerLinkActive="app-a_active" class="app-a">Demo</a>
 
-      <div *ngIf="!isAuthorizedProps">
+      <div *ngIf="!isAuthorized">
         <a [routerLink]="['auth/login']" routerLinkActive="app-a_active" class="app-a">Sign In</a>
         <a [routerLink]="['auth/registration']" routerLinkActive="app-a_active" class="app-a">Sign Up</a>
       </div>
 
-      <div *ngIf="isAuthorizedProps">
+      <!--div *ngIf="isAuthorized"-->
+      <div>
+        <a [routerLink]="['profile', 'new']" class="app-a">Profile</a>
         <a (click)="onSignOut()" class="app-a">Sign Out</a>
       </div>
   </div>

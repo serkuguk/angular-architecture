@@ -73,6 +73,7 @@ const userReducer = createReducer(
     (state, action) => ({
       ...state,
       entity: action.currentUser,
+      uid: action.currentUser.uid,
       loading: false,
       error: null
     })

@@ -18,9 +18,6 @@ export class LoginEffects {
                                 return from(this.afAuth.signInWithEmailAndPassword(credentials.credentials.email, credentials.credentials.password)).pipe(
                                   switchMap(signInState => this.afs.doc<UserInterface>(`users/${signInState.user.uid}`).valueChanges().pipe(
                                       take(1),
-                                      tap(() => {
-                                        this.router.navigate(['/']);
-                                      }),
                                       map(currentUser => loginSuccessActions({currentUser}))
                                     )
                                   ),
