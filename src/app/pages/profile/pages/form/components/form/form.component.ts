@@ -6,6 +6,7 @@ import {DictionariesInterface} from '@app/shared/dictionary/dictionaries/types/d
 import {select, Store} from '@ngrx/store';
 import {getDictionariesSelector, getIsReadySelector} from '@app/shared/dictionary/dictionaries/selectors';
 import {PersonalFormInterface} from '@app/pages/profile/pages/form/types/personal-form-interface';
+import {ProfessionalFormInterface} from '@app/pages/profile/pages/form/types/professional-form-interface';
 
 @Component({
   selector: 'app-form',
@@ -26,8 +27,8 @@ export class FormComponent implements OnInit, OnDestroy {
     this.dictionariesIsReady$ = this.store.pipe(select(getIsReadySelector))
 
     this.stepper.init([
-      {key: 'personal', label: 'Personal'},
-      {key: 'professional', label: 'Professional'}
+      {key: 'professional', label: 'Professional'},
+      {key: 'personal', label: 'Personal'}
     ])
 
     this.stepper.complete$.pipe(
@@ -45,6 +46,10 @@ export class FormComponent implements OnInit, OnDestroy {
   }
 
   onChangedPersonal(data: PersonalFormInterface): void {
+
+  }
+
+  onChangedProfessional(data: ProfessionalFormInterface): void {
 
   }
 }
