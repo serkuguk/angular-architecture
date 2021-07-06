@@ -5,7 +5,7 @@ import {takeUntil} from 'rxjs/operators';
 import {PersonalFormInterface} from '@app/pages/profile/pages/form/types/personal-form-interface';
 import {DictionariesInterface} from '@app/shared/dictionary/dictionaries/types/dictionaries-interface';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
-import {markFormGroupTouched, regex} from '@app/shared';
+import {markFormGroupTouched, regexErrors} from '@app/shared'
 
 @Component({
   selector: 'app-personal',
@@ -21,6 +21,7 @@ export class PersonalComponent implements OnInit, OnDestroy {
   @Output() changed = new EventEmitter<PersonalFormInterface>()
 
   private destroy = new Subject<any>()
+  regexErrors = regexErrors
   form: FormGroup
 
   constructor(private stepper: StepperService,
@@ -34,7 +35,7 @@ export class PersonalComponent implements OnInit, OnDestroy {
           updateOn: 'blur', validators: [
             Validators.required,
             Validators.maxLength(128),
-            Validators.pattern(regex.latinAndSpaces)
+            Validators.pattern(regexErrors.latinAndSpaces)
           ]
         }],
         country: [null, {

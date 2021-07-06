@@ -9,7 +9,10 @@
     </div>
   </div>
 
-  <app-form-field label="Name" [required]="true" [control]="form.controls.name">
+  <app-form-field label="Name"
+                  [required]="true"
+                  [control]="form.controls.name"
+                  [patternError]="regexErrors.latinAndSpaces">
     <app-input formControlName="name"></app-input>
   </app-form-field>
 

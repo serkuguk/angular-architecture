@@ -42,6 +42,4 @@ export class RecruiterComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.parent.removeControl(this.name)
   }
-
-
 }

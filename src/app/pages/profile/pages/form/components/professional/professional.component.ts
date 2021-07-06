@@ -42,10 +42,7 @@ export class ProfessionalComponent implements OnInit {
         updateOn: 'change',
         validators: [Validators.required]
       }],
-      about: [null, {
-        updateOn: 'blur',
-        validators: [Validators.required]
-      }]
+      about: [null]
     })
 
     if (this.value) {

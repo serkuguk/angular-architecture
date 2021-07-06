@@ -7,6 +7,7 @@ import {select, Store} from '@ngrx/store';
 import {getDictionariesSelector, getIsReadySelector} from '@app/shared/dictionary/dictionaries/selectors';
 import {PersonalFormInterface} from '@app/pages/profile/pages/form/types/personal-form-interface';
 import {ProfessionalFormInterface} from '@app/pages/profile/pages/form/types/professional-form-interface';
+import {getPersonalForm, getProfessionalForm} from '@app/pages/profile/pages/form/store/selectors';
 
 @Component({
   selector: 'app-form',
@@ -20,11 +21,19 @@ export class FormComponent implements OnInit, OnDestroy {
   dictionaries$: Observable<DictionariesInterface>
   dictionariesIsReady$: Observable<boolean>
 
+  personal$: Observable<PersonalFormInterface>
+  professional$: Observable<ProfessionalFormInterface>
+
+  loading$: Observable<boolean>
+
   constructor(public stepper: StepperService, private store: Store) { }
 
   ngOnInit(): void {
     this.dictionaries$ = this.store.pipe(select(getDictionariesSelector))
     this.dictionariesIsReady$ = this.store.pipe(select(getIsReadySelector))
+
+   /* this.personal$ = this.store.pipe(select(getPersonalForm))
+    this.professional$ = this.store.pipe(select(getProfessionalForm))*/
 
     this.stepper.init([
       {key: 'professional', label: 'Professional'},
@@ -46,10 +55,10 @@ export class FormComponent implements OnInit, OnDestroy {
   }
 
   onChangedPersonal(data: PersonalFormInterface): void {
-
+    console.log('personal changed = ', data)
   }
 
   onChangedProfessional(data: ProfessionalFormInterface): void {
-
+    console.log('professional changed = ', data)
   }
 }
