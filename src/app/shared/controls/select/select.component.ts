@@ -3,6 +3,7 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms'
 
 import {ControlItemInterface, Value} from '@app/shared/types/frontend/types/control-item-interface'
 import {MatSelectChange} from '@angular/material/select'
+import {MatOptionSelectionChange} from '@angular/material/core';
 
 @Component({
   selector: 'app-select',
@@ -55,6 +56,8 @@ export class SelectComponent implements OnInit, ControlValueAccessor {
 
   onChanged(event: MatSelectChange): void {
     const value = event.value ? event.value : null
+
+    this.value = value
     this.propagateChange(value)
     this.changed.emit(value)
   }
