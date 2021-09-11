@@ -12,7 +12,7 @@ export const loginActions = createAction(
 
 export const loginSuccessActions = createAction(
   ActionTypes.SIGN_IN_EMAIL_SUCCESS,
-  props<{currentUser: UserInterface}>()
+  props<{currentUser: any}>()
 )
 
 export const loginFailureActions = createAction(

@@ -1,6 +1,6 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {DictionariesInterface} from '@app/shared/dictionary/dictionaries/types/dictionaries-interface';
+import {DictionariesInterface} from '@app/shared/dictionary/types/dictionaries-interface';
 import {RecruiterFormInterface} from '@app/pages/profile/pages/form/types/recruiter-form-interface';
 
 @Component({

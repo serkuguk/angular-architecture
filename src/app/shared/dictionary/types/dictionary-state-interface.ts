@@ -1,4 +1,4 @@
-import {DictionariesInterface} from '@app/shared/dictionary/dictionaries/types/dictionaries-interface';
+import {DictionariesInterface} from '@app/shared/dictionary/types/dictionaries-interface';
 
 export interface DictionaryStateInterface {
   entities: DictionariesInterface

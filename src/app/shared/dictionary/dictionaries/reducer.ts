@@ -1,5 +1,5 @@
 import {Action, createReducer, on} from '@ngrx/store';
-import {DictionaryStateInterface} from '@app/shared/dictionary/dictionaries/types/dictionary-state-interface';
+import {DictionaryStateInterface} from '@app/shared/dictionary/types/dictionary-state-interface';
 import {
   dictionariesActions,
   dictionariesFailureActions,

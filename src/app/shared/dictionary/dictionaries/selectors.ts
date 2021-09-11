@@ -1,7 +1,7 @@
 import {createFeatureSelector, createSelector} from '@ngrx/store'
 import {AppStateInterface} from '@app/shared/types/store/app-state-interface'
-import {DictionaryStateInterface} from '@app/shared/dictionary/dictionaries/types/dictionary-state-interface'
-import {DictionariesInterface} from '@app/shared/dictionary/dictionaries/types/dictionaries-interface'
+import {DictionaryStateInterface} from '@app/shared/dictionary/types/dictionary-state-interface'
+import {DictionariesInterface} from '@app/shared/dictionary/types/dictionaries-interface'
 
 export const dictionarySelector = createFeatureSelector<AppStateInterface, DictionaryStateInterface>('dictionary')
 

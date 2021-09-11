@@ -14,7 +14,3 @@ export const getLoading = createSelector(
   (state: UserStateInterface) => state.loading
 );
 
-export const getIsAuthorized = createSelector(
-  authFeatureSelector,
-  (state: UserStateInterface) => !!state.uid
-);

@@ -10,9 +10,9 @@ import {
   dictionariesSuccessActions
 } from '@app/shared/dictionary/dictionaries/actions/dictionaries.actions'
 
-import {DictionaryService} from '@app/shared/dictionary/dictionaries/services/dictionary.service'
+import {DictionaryService} from '@app/shared/dictionary/services/dictionary.service'
 
-import {DictionariesInterface} from '@app/shared/dictionary/dictionaries/types/dictionaries-interface'
+import {DictionariesInterface} from '@app/shared/dictionary/types/dictionaries-interface'
 
 @Injectable()
 export class DictionariesEffects {

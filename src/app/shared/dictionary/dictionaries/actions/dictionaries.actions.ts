@@ -1,6 +1,6 @@
 import {createAction, props} from '@ngrx/store'
 import {ActionTypes} from '@app/shared/dictionary/dictionaries/actionTypes'
-import {DictionariesInterface} from '@app/shared/dictionary/dictionaries/types/dictionaries-interface'
+import {DictionariesInterface} from '@app/shared/dictionary/types/dictionaries-interface'
 
 export const dictionariesActions = createAction(
   ActionTypes.READ

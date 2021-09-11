@@ -6,7 +6,7 @@ import {map, take} from 'rxjs/operators'
 import * as jsonCountries from '@src/assets/countries.json'
 import {ItemInterface} from '@app/shared/types/frontend/types/item-interface'
 import {ControlItemInterface} from '@app/shared/types/frontend/types/control-item-interface'
-import {DictionaryInterface} from '@app/shared/dictionary/dictionaries/types/dictionary-interface';
+import {DictionaryInterface} from '@app/shared/dictionary/types/dictionary-interface';
 
 @Injectable()
 export class DictionaryService {

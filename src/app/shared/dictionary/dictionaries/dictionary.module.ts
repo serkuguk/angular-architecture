@@ -4,7 +4,7 @@ import {StoreModule} from '@ngrx/store'
 import {EffectsModule} from '@ngrx/effects'
 import {reducers} from '@app/shared/dictionary/dictionaries/reducer'
 import {DictionariesEffects} from '@app/shared/dictionary/dictionaries/effects/dictionaries.effects'
-import {DictionaryService} from '@app/shared/dictionary/dictionaries/services/dictionary.service'
+import {DictionaryService} from '@app/shared/dictionary/services/dictionary.service'
 
 @NgModule({
   declarations: [],

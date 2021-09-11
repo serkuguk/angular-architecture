@@ -2,7 +2,7 @@ import {Component, Input, OnDestroy, OnInit} from '@angular/core'
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ControlEntitiesInterface} from '@app/shared/types/frontend/types/control-entities-interface';
 import {mapControls} from '@app/shared/utils/form'
-import {DictionariesInterface} from '@app/shared/dictionary/dictionaries/types/dictionaries-interface';
+import {DictionariesInterface} from '@app/shared/dictionary/types/dictionaries-interface';
 import {EmployeeFormInterface} from '@app/pages/profile/pages/form/types/employee-form-interface';
 
 @Component({
@@ -42,6 +42,8 @@ export class EmployeeComponent implements OnInit, OnDestroy {
         validators: [Validators.required]
       }]
     })
+
+    this.form.valueChanges
 
     this.controls = {
       specialization: {

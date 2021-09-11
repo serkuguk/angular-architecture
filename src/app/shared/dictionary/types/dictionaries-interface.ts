@@ -1,4 +1,4 @@
-import {DictionaryInterface} from '@app/shared/dictionary/dictionaries/types/dictionary-interface'
+import {DictionaryInterface} from '@app/shared/dictionary/types/dictionary-interface'
 
 export interface DictionariesInterface {
   roles: DictionaryInterface

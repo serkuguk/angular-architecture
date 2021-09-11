@@ -8,7 +8,7 @@ import {ChangeDetectionStrategy,
 import {Observable, Subject} from 'rxjs'
 import {takeUntil} from 'rxjs/operators'
 import {StepperService} from '@app/pages/profile/pages/form/services/stepper.service'
-import {DictionariesInterface} from '@app/shared/dictionary/dictionaries/types/dictionaries-interface'
+import {DictionariesInterface} from '@app/shared/dictionary/types/dictionaries-interface'
 import {ProfessionalFormInterface} from '@app/pages/profile/pages/form/types/professional-form-interface'
 import {FormBuilder, FormGroup, Validators} from '@angular/forms'
 import {markFormGroupTouched, regexErrors} from '@app/shared'

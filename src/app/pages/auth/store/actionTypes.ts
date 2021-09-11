@@ -1,10 +1,5 @@
 export enum ActionTypes {
 
-  INIT = '[User] Init: Start',
-  INIT_AUTHORIZED = '[User] Init: Authorized',
-  INIT_UNAUTHORIZED = '[User] Init: Unauthorized',
-  INIT_FAILURE = '[User] Init: Failure',
-
   SIGN_IN_EMAIL = '[User] Sign In with email: Start',
   SIGN_IN_EMAIL_SUCCESS = '[User] Sign In with email: Success',
   SIGN_IN_EMAIL_FAILURE = '[User] Sign In with email: Failure',

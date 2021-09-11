@@ -9,7 +9,7 @@ import {
   CheckboxesModule, DateRangeModule,
   FormFieldModule,
   InputModule,
-  LayoutModule, RadiosModule,
+  RadiosModule,
   SelectModule,
   SpinnerModule
 } from '@app/shared';
@@ -21,6 +21,7 @@ import {ProfessionalComponent} from '@app/pages/profile/pages/form/components/pr
 import {UserPhotoModule} from '@app/shared/layout/components/user-photo/user-photo.module';
 import {RecruiterComponent} from '@app/pages/profile/pages/form/components/professional/roles/recruiter/recruiter.component';
 import {EmployeeComponent} from '@app/pages/profile/pages/form/components/professional/roles/employee/employee.component';
+import {MapperService} from '@app/pages/profile/pages/form/services/mapper.service';
 
 @NgModule({
   declarations: [FormComponent,
@@ -46,6 +47,7 @@ import {EmployeeComponent} from '@app/pages/profile/pages/form/components/profes
     CheckboxesModule,
     RadiosModule,
     DateRangeModule
-  ]
+  ],
+  providers: [MapperService]
 })
 export class FormModule { }

@@ -1,13 +1,14 @@
 import {UserStateInterface} from '@app/pages/auth/types/user-state-interface'
-import {Action, createReducer, on} from '@ngrx/store';
-import {loginActions, loginFailureActions, loginSuccessActions} from '@app/pages/auth/store/actions/login.actions';
-import {
-  registrationActions,
-  registrationFailureActions,
-  registrationSuccessActions
-} from '@app/pages/auth/store/actions/registration.actions';
-import {initActions, initAuthorizedActions, initFailureActions, initUnAuthorizedActions} from '@app/pages/auth/store/actions/init.actions';
-import {logoutActions} from '@app/pages/auth/store/actions/logout.actions';
+import {Action, createReducer, on} from '@ngrx/store'
+import {loginActions,
+        loginFailureActions,
+        loginSuccessActions} from '@app/pages/auth/store/actions/login.actions'
+
+import {registrationActions,
+        registrationFailureActions,
+        registrationSuccessActions} from '@app/pages/auth/store/actions/registration.actions'
+
+import {logoutActions, logoutSuccessActions} from '@app/pages/auth/store/actions/logout.actions'
 
 const initialUserState: UserStateInterface = {
   entity: null,
@@ -63,44 +64,19 @@ const userReducer = createReducer(
       error: action.error
     })
   ),
-  on(initActions,
-    (state) => ({
-      ...state,
-      loading: true
-    })
-  ),
-  on(initAuthorizedActions,
-    (state, action) => ({
-      ...state,
-      entity: action.currentUser,
-      uid: action.currentUser.uid,
-      loading: false,
-      error: null
-    })
-  ),
-  on(initUnAuthorizedActions,
-    (state) => ({
-      ...state,
-      entity: null,
-      loading: false,
-      error: null
-    })
-  ),
-  on(initFailureActions,
-    (state, action) => ({
-      ...state,
-      loading: false,
-      error: action.error
-    })
-  ),
   on(logoutActions,
     () => ({
       ...initialUserState,
-      isLoggedIn: false
+      loading: true
+    })
+  ),
+  on(logoutSuccessActions,
+    () => ({
+      ...initialUserState
     })
   )
 )
 
-export function reducer(state: any, action: Action) {
+export function reducers(state: UserStateInterface, action: Action) {
   return userReducer(state, action)
 }

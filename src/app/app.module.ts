@@ -35,7 +35,7 @@ const APP_DATE_FORMATS: MatDateFormats = {
 import {NotificationModule} from '@app/shared/services'
 import { StoreModule } from '@ngrx/store'
 import { EffectsModule } from '@ngrx/effects'
-import {DictionaryModule} from '@app/shared/dictionary/dictionary.module';
+import {DictionaryModule} from '@app/shared/dictionary/dictionaries/dictionary.module';
 import { HeaderComponent } from './components/header/header.component'
 import {HeaderModule} from '@app/components/header/header.module';
 import { DisplayComponent } from './pages/profile/pages/display/components/display.component';
@@ -43,6 +43,10 @@ import {ProfileModule} from '@app/pages/profile/profile.module';
 import { NotFoundComponent } from './pages/static/pages/not-found/components/not-found.component';
 import { WelcomeComponent } from './pages/static/pages/welcome/components/welcome.component';
 import {StaticModule} from '@app/pages/static/static.module';
+import {AuthModule} from "@app/pages/auth/auth.module";
+import {InitModule} from "@app/shared/dictionary/init/init.module";
+import { EmployeesComponent } from './pages/employees/components/employees/employees.component';
+import { JobsComponent } from './pages/jobs/components/jobs/jobs.component';
 
 
 @NgModule({
@@ -61,10 +65,16 @@ import {StaticModule} from '@app/pages/static/static.module';
       BrowserAnimationsModule,
       MatNativeDateModule,
       DictionaryModule,
+      InitModule,
       HeaderModule,
       NotificationModule.forRoot(),
       StoreRouterConnectingModule.forRoot(),
-      StoreModule.forRoot({router: routerReducer},{}),
+      StoreModule.forRoot({router: routerReducer},{
+        /*runtimeChecks: {
+          strictStateImmutability: true,
+          strictActionImmutability: true
+        }*/
+      }),
       EffectsModule.forRoot([]),
       StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
 

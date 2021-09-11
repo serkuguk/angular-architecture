@@ -8,9 +8,10 @@
         <a [routerLink]="['auth/registration']" routerLinkActive="app-a_active" class="app-a">Sign Up</a>
       </div>
 
-      <!--div *ngIf="isAuthorized"-->
-      <div>
-        <a [routerLink]="['profile', 'new']" class="app-a">Profile</a>
+      <div *ngIf="isAuthorized">
+        <a [routerLink]="['jobs']" class="app-a">Jobs</a>
+        <a [routerLink]="['employees']" class="app-a">Employees</a>
+        <a (click)="onProfileNavigate()" class="app-a">Profile</a>
         <a (click)="onSignOut()" class="app-a">Sign Out</a>
       </div>
   </div>

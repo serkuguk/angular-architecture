@@ -3,7 +3,7 @@ import {Subject} from 'rxjs';
 import {StepperService} from '@app/pages/profile/pages/form/services/stepper.service';
 import {takeUntil} from 'rxjs/operators';
 import {PersonalFormInterface} from '@app/pages/profile/pages/form/types/personal-form-interface';
-import {DictionariesInterface} from '@app/shared/dictionary/dictionaries/types/dictionaries-interface';
+import {DictionariesInterface} from '@app/shared/dictionary/types/dictionaries-interface';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {markFormGroupTouched, regexErrors} from '@app/shared'
 
